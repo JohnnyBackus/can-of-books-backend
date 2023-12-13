@@ -7,6 +7,7 @@ const handleGetBooks = require('./handlers/getbooks.js')
 const handlePostBooks = require('./handlers/postbooks.js')
 const Books = require('./models/books.js');
 const handleDeleteBooks = require('./handlers/deletebooks.js');
+const handleUpdateBooks = require('./handlers/updatebooks.js');
 
 const app = express();
 app.use(cors());
@@ -24,7 +25,8 @@ app.get('*', (request, response) => {
 });
 
 app.post ('/books', handlePostBooks);
-app.delete ('/books/:id', handleDeleteBooks)
+app.delete ('/books/:id', handleDeleteBooks);
+app.put ('/books/:id', handleUpdateBooks);
 
 const server = {
   start: function(PORT){
